@@ -1,10 +1,30 @@
 import React from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-
-const Demo = () => {
+const Demo = (props) => {
+  const moduleInfo = props.modules.map((m) =>
+    <tr>
+      <td>{m.name}</td>
+      <td>{m.noLectures}</td>
+      <td>{m.noPracticals}</td>
+    </tr>
+  ); 
   return (
-      <h1>TODO</h1>
+    <div>
+      <h1>{`${props.course} - Modules table`}</h1>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No lectures</th>
+            <th>No practicals</th>
+          </tr>
+        </thead>
+        <tbody>
+          {moduleInfo}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
